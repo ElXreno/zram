@@ -1,6 +1,6 @@
 Name:      zram
 Version:   0.4
-Release:   2%{?dist}
+Release:   3%{?dist}
 Summary:   ZRAM for swap config and services for Fedora
 License:   GPLv2+
 
@@ -53,6 +53,9 @@ install -pm 0755 %{SOURCE4} %{buildroot}%{_sbindir}
 %{_sbindir}/zramstop
 
 %changelog
+* Tue Aug 18 2020 ElXreno <elxreno@gmail.com> - 0.4-3
+- Compression algorithm now is lzo-rle
+
 * Wed Dec 18 2019 ElXreno <elxreno@gmail.com> - 0.4-2
 - Changed compression algorithm from lz4 to zstd
 

@@ -15,8 +15,8 @@ zram_size=$((${mem_total} / ${factor} /1024))
 # ZRAM in recent kernels is multithreaded so we don't need to balance across CPUs
 modprobe -q zram num_devices=1
 
-# Create ZRAM with first device, zstd algorithm
-zramdev=$(zramctl --find --algorithm zstd --size ${zram_size}MB 2>&1)
+# Create ZRAM with first device, lzo-rle algorithm
+zramdev=$(zramctl --find --algorithm lzo-rle --size ${zram_size}MB 2>&1)
 # The above returns the device. Use it below
 mkswap $zramdev
 swapon -p $priority $zramdev
